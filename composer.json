@@ -1,0 +1,26 @@
+{
+    "name": "codecollab/authentication",
+    "description": "Authentication package of the CodeCollab project",
+    "version": "0.1.0",
+    "type": "library",
+    "keywords": ["codecollab", "security", "authentication"],
+    "homepage": "https://github.com/CodeCollab/Authentication",
+    "license": "See the LICENSE file",
+    "authors": [
+        {
+            "name": "Pieter Hordijk",
+            "role": "Lead"
+        }
+    ],
+    "autoload": {
+        "psr-4": {"CodeCollab\\Authentication\\": "src/"}
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0-dev",
+        "codecollab/http": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5"
+    }
+}
