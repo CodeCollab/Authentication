@@ -22,7 +22,7 @@ use CodeCollab\Http\Session\Session;
  * @package    Authentication
  * @author     Pieter Hordijk <info@pieterhordijk.com>
  */
-class User
+class User implements Authentication
 {
     /**
      * @var int The cost used to hash passwords
@@ -39,7 +39,7 @@ class User
      *
      * @param \CodeCollab\Http\Session\Session $session The session object
      */
-    public function __construct(SessionInterface $session)
+    public function __construct(Session $session)
     {
         $this->session = $session;
     }
@@ -139,7 +139,9 @@ class User
      */
     public function isAdmin(): bool
     {
-        return $this->session->get('user') && $this->session->get('user')['admin'];
+        return $this->isLoggedIn()
+            && isset($this->session->get('user')['admin'])
+            && $this->session->get('user')['admin'] === true;
     }
 
     /**
