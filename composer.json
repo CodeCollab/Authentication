@@ -16,11 +16,18 @@
         "psr-4": {"CodeCollab\\Authentication\\": "src/"}
     },
     "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "git@github.com:PeeHaa/phpunit-mock-objects.git"
+        }
+    ],
     "require": {
         "php": ">=7.0-dev",
         "codecollab/http": "dev-master"
     },
     "require-dev": {
+        "phpunit/phpunit-mock-objects": "dev-seven-fixes as 3.0",
         "phpunit/phpunit": "^5"
     }
 }
