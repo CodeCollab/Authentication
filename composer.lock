@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cbd38a6ab1e27a4940875ea2b7dd6c5b",
+    "hash": "ad8085bc47fe37d37fa8a96b7182460c",
     "packages": [
         {
             "name": "codecollab/encryption",
@@ -361,12 +361,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "b5ea3a788a7ca6e48a7f5d5a8a2f7bb89206fe35"
+                "reference": "4308b3a44ddba35e298792f22e8f3b0685f31191"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/b5ea3a788a7ca6e48a7f5d5a8a2f7bb89206fe35",
-                "reference": "b5ea3a788a7ca6e48a7f5d5a8a2f7bb89206fe35",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/4308b3a44ddba35e298792f22e8f3b0685f31191",
+                "reference": "4308b3a44ddba35e298792f22e8f3b0685f31191",
                 "shasum": ""
             },
             "require": {
@@ -415,7 +415,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-09-01 15:01:35"
+            "time": "2015-09-02 07:03:47"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -601,12 +601,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "9b485d838d3cae2ae6ff304a8ef983202d166978"
+                "reference": "bbcc371da7d9c7d58d62f895156a87c395695a39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9b485d838d3cae2ae6ff304a8ef983202d166978",
-                "reference": "9b485d838d3cae2ae6ff304a8ef983202d166978",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/bbcc371da7d9c7d58d62f895156a87c395695a39",
+                "reference": "bbcc371da7d9c7d58d62f895156a87c395695a39",
                 "shasum": ""
             },
             "require": {
@@ -667,15 +667,21 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-09-01 14:04:54"
+            "time": "2015-09-02 07:15:35"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "dev-seven-fixes",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:PeeHaa/phpunit-mock-objects.git",
-                "reference": "fc085b7c3b147bc03b37cceacb3545bac5bc6b20"
+                "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
+                "reference": "4f526b7e2c42cacf32c86e1e0c9ab9d3b24273cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/4f526b7e2c42cacf32c86e1e0c9ab9d3b24273cf",
+                "reference": "4f526b7e2c42cacf32c86e1e0c9ab9d3b24273cf",
+                "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
@@ -700,11 +706,7 @@
                     "src/"
                 ]
             },
-            "autoload-dev": {
-                "classmap": [
-                    "tests/_fixture/"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -721,11 +723,7 @@
                 "mock",
                 "xunit"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/phpunit-mock-objects/issues",
-                "irc": "irc://irc.freenode.net/phpunit"
-            },
-            "time": "2015-09-01 15:59:53"
+            "time": "2015-09-02 07:30:58"
         },
         {
             "name": "sebastian/comparator",
@@ -1191,19 +1189,11 @@
             "time": "2015-08-24 07:21:16"
         }
     ],
-    "aliases": [
-        {
-            "alias": "3.0",
-            "alias_normalized": "3.0.0.0",
-            "version": "dev-seven-fixes",
-            "package": "phpunit/phpunit-mock-objects"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "php": 20,
-        "codecollab/http": 20,
-        "phpunit/phpunit-mock-objects": 20
+        "codecollab/http": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
