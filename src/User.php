@@ -32,7 +32,7 @@ class User implements Authentication
     /**
      * @var \CodeCollab\Http\Session\Session The session object
      */
-    private $session;
+    protected $session;
 
     /**
      * Creates instance
