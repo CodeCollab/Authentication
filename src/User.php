@@ -149,6 +149,8 @@ class User implements Authentication
      *
      * Gets a property of the user
      *
+     * @param mixed $key The key to get
+     *
      * @return mixed The property of the user if exists or a placeholder otherwise
      */
     public function __get($key)
