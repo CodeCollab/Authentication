@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 /**
- * Smple user authentication class
+ * Simple user authentication class
  *
  * PHP version 7.0
  *
@@ -16,7 +16,7 @@ namespace CodeCollab\Authentication;
 use CodeCollab\Http\Session\Session;
 
 /**
- * Smple user authentication class
+ * Simple user authentication class
  *
  * @category   CodeCollab
  * @package    Authentication
