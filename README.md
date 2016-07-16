@@ -80,6 +80,10 @@ $user->logOut();
 
 [MIT][mit]
 
+## Security issues
+
+If you found a security issue please contact directly by mail instead of using the issue tracker at codecollab-security@pieterhordijk.com
+
 [http]: https://github.com/CodeCollab/Http
 [contributing]: https://github.com/CodeCollab/Authentication/blob/master/CONTRIBUTING.md
 [mit]: http://spdx.org/licenses/MIT
