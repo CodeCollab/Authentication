@@ -3,6 +3,8 @@
 namespace CodeCollabTest\Unit\Authentication;
 
 use CodeCollab\Authentication\User;
+use CodeCollab\Authentication\Authentication;
+use CodeCollab\Http\Session\Session;
 
 class UserTest extends \PHPUnit_Framework_TestCase
 {
@@ -24,7 +26,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testImplementsCorrectInterface()
     {
-        $this->assertInstanceOf('CodeCollab\Authentication\Authentication', new User($this->getMock('CodeCollab\Http\Session\Session')));
+        $this->assertInstanceOf(Authentication::class, new User($this->createMock(Session::class)));
     }
 
     /**
@@ -33,7 +35,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsLoggedInNotLoggedIn()
     {
-        $session = $this->getMock('CodeCollab\Http\Session\Session');
+        $session = $this->createMock(Session::class);
 
         $session
             ->expects($this->once())
@@ -51,7 +53,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsLoggedInLoggedIn()
     {
-        $session = $this->getMock('CodeCollab\Http\Session\Session');
+        $session = $this->createMock(Session::class);
 
         $session
             ->expects($this->once())
@@ -69,7 +71,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testLogInFailesWhenUserArrayIsEmpty()
     {
-        $session = $this->getMock('CodeCollab\Http\Session\Session');
+        $session = $this->createMock(Session::class);
 
         $this->assertFalse(
             (new User($session))->logIn(
@@ -86,7 +88,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testLogInFailesWhenPasswordDoesntMatch()
     {
-        $session = $this->getMock('CodeCollab\Http\Session\Session');
+        $session = $this->createMock(Session::class);
 
         $this->assertFalse(
             (new User($session))->logIn(
@@ -103,7 +105,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testLogInSucceeds()
     {
-        $session = $this->getMock('CodeCollab\Http\Session\Session');
+        $session = $this->createMock(Session::class);
 
         $session
             ->expects($this->once())
@@ -126,7 +128,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testLogInRememberMeFailsOnEmptyUserArray()
     {
-        $session = $this->getMock('CodeCollab\Http\Session\Session');
+        $session = $this->createMock(Session::class);
 
         $this->assertFalse(
             (new User($session))->logInRememberMe([])
@@ -139,7 +141,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testLogInRememberMeSucceeds()
     {
-        $session = $this->getMock('CodeCollab\Http\Session\Session');
+        $session = $this->createMock(Session::class);
 
         $session
             ->expects($this->once())
@@ -158,7 +160,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testNeedsRehashDoesntNeedRehashWhenNotLoggedIn()
     {
-        $session = $this->getMock('CodeCollab\Http\Session\Session');
+        $session = $this->createMock(Session::class);
 
         $this->assertFalse(
             (new User($session))->needsRehash($this->loginCredentials['hash'])
@@ -171,7 +173,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testNeedsRehashDoesntNeedRehashWhenHashIsAlreadyUpToDate()
     {
-        $user = new User($this->getMock('CodeCollab\Http\Session\Session'));
+        $user = new User($this->createMock(Session::class));
 
         $this->assertTrue(
             $user->logIn(
@@ -190,7 +192,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testNeedsRehashDoesNeedRehash()
     {
-        $session = $this->getMock('CodeCollab\Http\Session\Session');
+        $session = $this->createMock(Session::class);
 
         $session
             ->expects($this->once())
@@ -218,7 +220,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testRehash()
     {
-        $user = new User($this->getMock('CodeCollab\Http\Session\Session'));
+        $user = new User($this->createMock(Session::class));
 
         $this->assertRegExp('/^\$2y\$14\$(.*)$/', $user->rehash('password'));
         $this->assertSame(60, strlen($user->rehash('password')));
@@ -230,7 +232,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testLogOut()
     {
-        $session = $this->getMock('CodeCollab\Http\Session\Session');
+        $session = $this->createMock(Session::class);
 
         $session
             ->expects($this->once())
@@ -247,7 +249,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsAdminNotAdminBecauseNotLoggedIn()
     {
-        $this->assertFalse((new User($this->getMock('CodeCollab\Http\Session\Session')))->isAdmin());
+        $this->assertFalse((new User($this->createMock(Session::class)))->isAdmin());
     }
 
     /**
@@ -257,7 +259,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsAdminNotAdminKeyDoesntExistInUserArray()
     {
-        $session = $this->getMock('CodeCollab\Http\Session\Session');
+        $session = $this->createMock(Session::class);
 
         $session
             ->expects($this->once())
@@ -283,7 +285,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsAdminNotAdminValueIsFalse()
     {
-        $session = $this->getMock('CodeCollab\Http\Session\Session');
+        $session = $this->createMock(Session::class);
 
         $session
             ->expects($this->once())
@@ -309,7 +311,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testIsAdminAdmin()
     {
-        $session = $this->getMock('CodeCollab\Http\Session\Session');
+        $session = $this->createMock(Session::class);
 
         $session
             ->expects($this->once())
@@ -334,7 +336,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetReturnsPlaceholderOnNonExistentKey()
     {
-        $session = $this->getMock('CodeCollab\Http\Session\Session');
+        $session = $this->createMock(Session::class);
 
         $session
             ->expects($this->once())
@@ -352,7 +354,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetReturnsValueOnExistingKey()
     {
-        $session = $this->getMock('CodeCollab\Http\Session\Session');
+        $session = $this->createMock(Session::class);
 
         $session
             ->expects($this->once())
