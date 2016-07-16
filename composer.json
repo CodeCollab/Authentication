@@ -15,12 +15,12 @@
     "autoload": {
         "psr-4": {"CodeCollab\\Authentication\\": "src/"}
     },
-    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
-        "php": ">=7.0-dev",
-        "codecollab/http": "dev-master"
+        "php": "^7",
+        "codecollab/http": "^1"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5"
+        "phpunit/phpunit": "^5.4"
     }
 }
