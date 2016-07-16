@@ -26,7 +26,7 @@ Creating an instance of ```User``` requires an instance of ```\CodeCollab\Http\S
 
 ### User Authentication
 
-The ```logIn``` function takes as arguments the password from the form, the passowrd hash from the database and the user's information (to be persisted in Session).
+The ```logIn``` function takes as arguments the password from the form, the password hash from the database and the user's information (to be persisted in Session).
 ```
 $user = new User($session);
 if ($user->logIn($password_from_form, $hash_from_db, $user_info_from_db)) {
