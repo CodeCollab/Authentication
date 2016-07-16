@@ -15,7 +15,7 @@ Include the library in your project using composer:
 ```
 {
     "require-dev": {
-        "codecollab/authentication": "1.0.*"
+        "codecollab/authentication": "^1"
     }
 }
 ```
